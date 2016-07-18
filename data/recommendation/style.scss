@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+}
+
+.sync-box {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  justify-content: space-around;
+  width: 450px;
+  & > div {
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  h2, h3 {
+    font-weight: normal;
+    margin: auto;
+    width: 100%;
+  }
+  .image-box {
+    height: 100%;
+    width: 10%;
+    img {
+      display: block;
+      margin: auto;
+    }
+  }
+  .inner-box-1 {
+    height: 100%;
+    width: 60%;
+  }
+  .inner-box-2 {
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    width: 25%;
+  }
+}
+
+#welcome {
+  padding: 5px 10px 20px;
+  h3 {
+    font-weight: normal;
+  }
+}
+
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+}
