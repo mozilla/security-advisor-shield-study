@@ -1,39 +1,44 @@
 body {
   margin: 0; }
 
-.sync-box {
+#sync {
   align-items: center;
   display: flex;
   height: 100px;
   justify-content: space-around;
   width: 450px; }
-  .sync-box > div {
+  #sync > div {
     align-content: center;
     display: flex;
     flex-wrap: wrap; }
-  .sync-box h2, .sync-box h3 {
+  #sync h2, #sync h3 {
     font-weight: normal;
     margin: auto;
     width: 100%; }
-  .sync-box .image-box {
+  #sync .image-box {
     height: 100%;
     width: 10%; }
-    .sync-box .image-box img {
+    #sync .image-box img {
       display: block;
       margin: auto; }
-  .sync-box .inner-box-1 {
+  #sync .inner-box-1 {
     height: 100%;
-    width: 60%; }
-  .sync-box .inner-box-2 {
+    width: 65%; }
+  #sync .inner-box-2 {
     align-items: center;
     height: 100%;
     margin: 0;
-    width: 25%; }
+    width: 20%; }
 
 #welcome {
   padding: 5px 10px 20px; }
   #welcome h3 {
     font-weight: normal; }
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center; }
 
 button {
   background-color: #4CAF50;

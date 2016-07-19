@@ -5,8 +5,8 @@ Uses haveibeenpwned.com API to load in compromised site list. Can also use Norma
 to add to list of compromised sites, as well as local data.
 
 #To build
-`$ npm install`
-`$ npm run build`
+`$ npm install
+$ npm run build`
 
 This will create `@security-advisor-0.0.1.xpi`, which you can install in Firefox.
 

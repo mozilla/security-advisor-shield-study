@@ -2,7 +2,7 @@ body {
   margin: 0;
 }
 
-.sync-box {
+#sync {
   align-items: center;
   display: flex;
   height: 100px;
@@ -28,13 +28,13 @@ body {
   }
   .inner-box-1 {
     height: 100%;
-    width: 60%;
+    width: 65%;
   }
   .inner-box-2 {
     align-items: center;
     height: 100%;
     margin: 0;
-    width: 25%;
+    width: 20%;
   }
 }
 
@@ -43,6 +43,12 @@ body {
   h3 {
     font-weight: normal;
   }
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 button {
