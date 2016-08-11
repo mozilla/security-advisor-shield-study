@@ -6,27 +6,32 @@
   "main": "index.js",
   "author": "Benton Case <bcase@mozilla.com>",
   "repository": "https://github.com/casebenton/normandy-security-advisor",
-  "scripts": {
-    "test": "jpm test",
-    "build": "jpm xpi"
-  },
   "engines": {
-    "firefox": ">=38.0a1"
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
   },
-  "license": "MPL-2.0",
+  "license": "MIT",
   "keywords": [
     "jetpack"
   ],
-  "devDependencies": {
-    "babel-eslint": "^6.0.2",
-    "eslint": "^1.10.3",
-    "eslint-config-normandy": "^1.0.0",
-    "eslint-plugin-babel": "^3.1.0",
-    "eslint-plugin-mozilla": "0.0.3",
-    "jpm": "^1.0.5",
-    "woodchipper": "^0.9.1"
+  "scripts": {
+    "styles": "node-sass data/recommendation/style.scss data/recommendation/style.css --sourcemap=none",
+    "build": "npm run styles && jpm xpi",
+    "lint": "eslint lib data"
   },
+  "devDependencies": {
+    "jpm": "1.0.7",
+    "eslint": "2.13.1",
+    "eslint-config-airbnb": "9.0.1",
+    "eslint-plugin-import": "1.10.2",
+    "eslint-plugin-jsx-a11y": "1.5.5",
+    "eslint-plugin-mozilla": "0.0.3",
+    "eslint-plugin-react": "5.2.2",
+    "node-sass": "3.8.0",
+    "woodchipper": "0.9.1"
+  },
+  "repository": "https://github.com/mozilla/addon-recommendation-shield-study.git",
   "dependencies": {
-    "jexl": "^1.1.3"
+    "shield-studies-addon-utils": "1.2.0"
   }
 }

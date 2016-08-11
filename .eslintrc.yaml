@@ -1,4 +1,4 @@
-extends: 'normandy'
+extends: 'airbnb'
 plugins:
   - mozilla
 
@@ -8,6 +8,7 @@ rules:
   mozilla/no-aArgs: [1]
   mozilla/this-top-level-scope: [1]
   no-console: [1]
+  import/no-unresolved: [0]
 
 globals:
   require: false

@@ -1,8 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  background: #FFF;
   margin: 0;
 }
 
-#sync {
+.sync-box {
   align-items: center;
   display: flex;
   height: 100px;
@@ -38,11 +43,18 @@ body {
   }
 }
 
-#welcome {
+.welcome-box {
   padding: 5px 10px 20px;
   h3 {
     font-weight: normal;
   }
+  &.hidden {
+    display: none;
+  }
+}
+
+.complete-box.hidden {
+  display: none;
 }
 
 .buttons {
