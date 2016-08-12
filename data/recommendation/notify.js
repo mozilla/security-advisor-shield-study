@@ -1,7 +1,7 @@
 class Notify {
   start() {
     this.setup();
-    self.port.on('data', (/* recs */) => {
+    self.port.on('data', (/* recs */) => { // TODO: use rec data for customized panel info
       this.showAdvice();
     });
   }
@@ -17,7 +17,6 @@ class Notify {
     domainH3.innerHTML = 'We won\'t show this message anymore for this domain';
   }
 
-  // TODO: convert anonymous functions to named functions
   setup() {
     const signupButton = document.getElementById('signup');
     signupButton.addEventListener('click', () => {
@@ -29,7 +28,7 @@ class Notify {
     });
     const closeButton = document.getElementById('done');
     closeButton.addEventListener('click', () => {
-      self.port.emit('finished', this.domain);
+      self.port.emit('disableSite');
     });
   }
 }

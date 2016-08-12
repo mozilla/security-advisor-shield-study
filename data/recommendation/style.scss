@@ -7,6 +7,11 @@ body {
   margin: 0;
 }
 
+h1 {
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
 .sync-box {
   align-items: center;
   display: flex;
@@ -17,11 +22,6 @@ body {
     align-content: center;
     display: flex;
     flex-wrap: wrap;
-  }
-  h2, h3 {
-    font-weight: normal;
-    margin: auto;
-    width: 100%;
   }
   .image-box {
     height: 100%;
@@ -45,9 +45,6 @@ body {
 
 .welcome-box {
   padding: 5px 10px 20px;
-  h3 {
-    font-weight: normal;
-  }
   &.hidden {
     display: none;
   }
@@ -64,11 +61,14 @@ body {
 }
 
 button {
-    background-color: #4CAF50;
+    background: #57bd35;
     border: none;
     color: white;
     padding: 8px 8px;
     text-align: center;
     display: inline-block;
     font-size: 12px;
+    &:hover {
+      background: #40a624;
+    }
 }
