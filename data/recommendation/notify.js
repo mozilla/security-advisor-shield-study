@@ -4,8 +4,11 @@ class Notify {
     self.port.on('data', recs => {
       this.showAdvice(recs);
     });
-    self.port.on('userHasSync', () => {
+    self.port.on('syncEnabled', () => {
       this.removeSyncSignup();
+    });
+    self.port.on('syncDisabled', () => {
+      this.showSyncSignup();
     });
   }
 
@@ -47,7 +50,11 @@ class Notify {
   }
 
   removeSyncSignup() {
-    document.querySelector('#sync').remove();
+    document.querySelector('#sync').classList.add('hidden');
+  }
+
+  showSyncSignup() {
+    document.querySelector('#sync').classList.remove('hidden');
   }
 }
 

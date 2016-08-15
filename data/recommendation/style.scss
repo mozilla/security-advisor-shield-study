@@ -13,6 +13,9 @@ h1 {
 }
 
 .sync-box {
+  &.hidden {
+    display: none;
+  }
   align-items: center;
   display: flex;
   height: 100px;
