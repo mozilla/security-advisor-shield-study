@@ -4,6 +4,9 @@ class Notify {
     self.port.on('data', recs => {
       this.showAdvice(recs);
     });
+    self.port.on('userHasSync', () => {
+      this.removeSyncSignup();
+    });
   }
 
   prettifyDate(ISODate) {
@@ -41,6 +44,10 @@ class Notify {
     closeButton.addEventListener('click', () => {
       self.port.emit('disableSite');
     });
+  }
+
+  removeSyncSignup() {
+    document.querySelector('#sync').remove();
   }
 }
 
