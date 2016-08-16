@@ -47,6 +47,10 @@ class Notify {
     closeButton.addEventListener('click', () => {
       self.port.emit('disableSite');
     });
+    const noAccountButton = document.querySelector('#no-account');
+    noAccountButton.addEventListener('click', () => {
+      self.port.emit('disableSite');
+    });
   }
 
   removeSyncSignup() {
