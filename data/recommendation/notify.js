@@ -4,6 +4,12 @@ class Notify {
     self.port.on('data', recs => {
       this.showAdvice(recs);
     });
+    self.port.on('syncEnabled', () => {
+      this.removeSyncSignup();
+    });
+    self.port.on('syncDisabled', () => {
+      this.showSyncSignup();
+    });
   }
 
   prettifyDate(ISODate) {
@@ -41,6 +47,14 @@ class Notify {
     closeButton.addEventListener('click', () => {
       self.port.emit('disableSite');
     });
+  }
+
+  removeSyncSignup() {
+    document.querySelector('#sync').classList.add('hidden');
+  }
+
+  showSyncSignup() {
+    document.querySelector('#sync').classList.remove('hidden');
   }
 }
 
