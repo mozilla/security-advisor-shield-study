@@ -22,16 +22,16 @@ class Notify {
     const victimCount = this.prettifyDate(recs.PwnCount);
     document.querySelector('#welcome').classList.remove('hidden');
     document.querySelector('#complete').classList.add('hidden');
-    document.querySelector('#title').innerHTML = `Change your password for ${recs.Title}`;
+    document.querySelector('#title').textContent = `Change your password for ${recs.Title}`;
     const dateTag = document.querySelector('#date');
-    dateTag.innerHTML = `This site was hacked in ${year}`;
-    document.querySelector('#count').innerHTML = `This has affected ${victimCount} users`;
+    dateTag.textContent = `This site was hacked in ${year}`;
+    document.querySelector('#count').textContent = `This has affected ${victimCount} users`;
   }
   showSuccess() {
     document.querySelector('#welcome').classList.add('hidden');
     document.querySelector('#complete').classList.remove('hidden');
     const domainH3 = document.querySelector('#message');
-    domainH3.innerHTML = 'We won\'t show this message anymore for this domain';
+    domainH3.textContent = 'We won\'t show this message anymore for this domain';
   }
 
   setup() {
