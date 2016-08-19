@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
   </head>
   <body>
-    <div id="welcome" class="welcome-box">
+    <div id="welcome" class="info-box">
       <h1 id="title">Change your password for this site immediately!</h1>
       <p id="date">This site was compromised recently.</p>
       <p id="count">It affected many users, and you may be among them.</p>
@@ -12,17 +12,17 @@
         If you use your current password for this site on
         any other sites, we recommend you change those as well.
       </p>
-      <div class="buttons">
-        <button id="finished">I've changed my password</button>
-        <button id="no-account">I don't have an account for this site</button>
-        <button id="disable-all">Hide all warnings</button>
+      <div class="button-div">
+        <button id="finished" class="button">I've changed my password</button>
+        <button id="no-account" class="button secondary">I don't have an account</button>
+        <button id="disable-all" class="button secondary">Hide all warnings</button>
       </div>
     </div>
-    <div id="complete" class="complete-box hidden">
+    <div id="complete" class="info-box hidden">
       <h1>You've just taken a step towards staying safe online.</h1>
       <p id="message"></p>
-      <div class="buttons">
-        <button id="done">Hide Warning</button>
+      <div class="button-div">
+        <button id="done" class="button">Hide Warning</button>
       </div>
     </div>
     <div id="sync" class="sync-box">
@@ -37,7 +37,7 @@
         </p>
       </div>
       <div class="inner-box-2">
-        <button id="signup">Sign Up</button>
+        <button id="signup" class="button">Sign Up</button>
       </div>
     </div>
   </body>

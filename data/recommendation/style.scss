@@ -10,15 +10,17 @@ body {
 h1 {
   font-weight: normal;
   font-size: 1.2em;
+  margin: 0;
 }
 
 .sync-box {
+  border-top: 1px solid #555;
   &.hidden {
     display: none;
   }
   align-items: center;
   display: flex;
-  height: 100px;
+  height: 80px;
   justify-content: space-around;
   width: 450px;
   & > div {
@@ -46,32 +48,37 @@ h1 {
   }
 }
 
-.welcome-box {
-  padding: 5px 10px 20px;
+.info-box {
+  height: 160px;
+  padding: 10px;
   &.hidden {
     display: none;
   }
 }
 
-.complete-box.hidden {
-  display: none;
-}
-
-.buttons {
+.button-div {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-button {
+.button {
     background: #57bd35;
     border: none;
     color: white;
-    padding: 8px 8px;
+    padding: 4px 4px;
     text-align: center;
-    display: inline-block;
     font-size: 12px;
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
     &:hover {
       background: #40a624;
+    }
+    &.secondary {
+      background: #888;
+      &:hover {
+        background: #777;
+      }
     }
 }
