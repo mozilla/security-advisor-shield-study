@@ -51,6 +51,10 @@ class Notify {
     noAccountButton.addEventListener('click', () => {
       self.port.emit('disableSite');
     });
+    const disableAllButton = document.querySelector('#disable-all');
+    disableAllButton.addEventListener('click', () => {
+      self.port.emit('disableForever');
+    });
   }
 
   removeSyncSignup() {
