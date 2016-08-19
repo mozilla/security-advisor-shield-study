@@ -64,10 +64,6 @@ class Notify {
   showSyncSignup() {
     document.querySelector('#sync').classList.remove('hidden');
   }
-
-  disableForever() {
-    self.port.emit('disableForever');
-  }
 }
 
 const notify = new Notify();
