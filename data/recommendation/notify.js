@@ -32,7 +32,7 @@ class Notify {
       div.appendChild(this.createWarningBox(options.site, options.year));
     } else if (options.boxType === 'changedPassword') {
       div.appendChild(this.createPasswordChangedBox());
-    } else if (options.boxType === 'noAccount') { // no account
+    } else if (options.boxType === 'noAccount') {
       div.appendChild(this.createNoAccountBox());
     } else {
       throw new Error(`Unrecognized boxType "${options.boxType}"`);
