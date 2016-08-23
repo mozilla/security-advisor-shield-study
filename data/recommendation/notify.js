@@ -1,68 +1,140 @@
+const yo = require('yo-yo');
+
 class Notify {
   start() {
-    this.setup();
+    this.target = this.createBase();
+    document.body.appendChild(this.target);
+    const methodsToBind = ['handleEndWarning', 'handleEndSignup'];
+    for (let key of methodsToBind) { // eslint-disable-line prefer-const
+      this[key] = this[key].bind(this);
+    }
     self.port.on('data', recs => {
-      this.showAdvice(recs);
+      const date = new Date(recs.BreachDate);
+      const year = date.getFullYear();
+      this.render({
+        warn: true,
+        site: recs.Title,
+        year,
+      });
     });
+    this.hasSync = false;
     self.port.on('syncEnabled', () => {
-      this.removeSyncSignup();
+      this.hasSync = true;
     });
     self.port.on('syncDisabled', () => {
-      this.showSyncSignup();
+      this.hasSync = false;
     });
   }
 
-  prettifyDate(ISODate) {
-    return ISODate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  render(options) {
+    const div = this.createBase();
+    if (options.warn) {
+      div.appendChild(this.createWarningBox(options.site, options.year));
+    } else { // !warn
+      if (options.changedPassword) {
+        div.appendChild(this.createPasswordChangedBox());
+      } else { // !changedPassword
+        div.appendChild(this.createNoAccountBox());
+      }
+    }
+    yo.update(this.target, div);
   }
 
-  showAdvice(recs) {
-    const date = new Date(recs.BreachDate);
-    const year = date.getFullYear();
-    const victimCount = this.prettifyDate(recs.PwnCount);
-    document.querySelector('#welcome').classList.remove('hidden');
-    document.querySelector('#complete').classList.add('hidden');
-    document.querySelector('#title').textContent = `Change your password for ${recs.Title}`;
-    const dateTag = document.querySelector('#date');
-    dateTag.textContent = `This site was hacked in ${year}`;
-    document.querySelector('#count').textContent = `This has affected ${victimCount} users`;
-  }
-  showSuccess() {
-    document.querySelector('#welcome').classList.add('hidden');
-    document.querySelector('#complete').classList.remove('hidden');
-    const domainH3 = document.querySelector('#message');
-    domainH3.textContent = 'We won\'t show this message anymore for this domain';
+  createBase() {
+    return yo`<div id="panel"></div>`;
   }
 
-  setup() {
-    const signupButton = document.querySelector('#signup');
-    signupButton.addEventListener('click', () => {
+  createWarningBox(site, year) {
+    return yo`
+      <div>
+        <div class="info-box">
+          <h1>Change your password for ${site}!</h1>
+          <p>
+            This site was compromised in ${year}, and your
+            account may be affected. <a>Learn more...</a>
+          </p>
+          <p>
+            If you use this password on any other sites,
+            we recommend you change those as well.
+          </p>
+        </div>
+        ${this.createWarningFooter()}
+      </div>
+    `;
+  }
+
+  createWarningFooter() {
+    return yo`
+      <footer>
+        <div onclick=${this.handleEndWarning(true)}>I've changed my password</div>
+        <div onclick=${this.handleEndWarning(false)}>I don't have an account</div>
+      </footer>
+    `;
+  }
+
+  createPasswordChangedBox() {
+    return yo`
+      <div>
+        <div class="info-box">
+          <h1>Great! Protect all your accounts</h1>
+          <p>
+            You've just taken a step towards staying safe online.
+          </p>
+          <p>
+            Protect yourself further with Firefox Sync for your passwords
+            and you will be informed each time one of your accounts might
+            be at risk.
+          </p>
+        </div>
+        ${this.createSignupFooter()}
+      </div>
+    `;
+  }
+
+  createNoAccountBox() {
+    return yo`
+      <div>
+        <div class="info-box">
+          <h1>Phew! Protect other accounts</h1>
+          <p>
+            You dodged the bullet with not having an account here.
+          </p>
+          <p>
+            Protect yourself with Firefox Sync for your passwords
+            and you will be informed each time one of your accounts might
+            be at risk.
+          </p>
+        </div>
+        ${this.createSignupFooter()}
+      </div>
+    `;
+  }
+
+  createSignupFooter() {
+    return yo`
+      <footer>
+        <div onclick=${this.handleEndSignup(false)}>No, thanks</div>
+        <div onclick=${this.handleEndSignup(true)}>Use Firefox Sync</div>
+      </footer>
+    `;
+  }
+
+  handleEndWarning(changedPassword) {
+    if (!this.hasSync) {
+      this.render({
+        warn: false,
+        changedPassword,
+      });
+    } else {
+      self.port.emit('disableSite');
+    }
+  }
+
+  handleEndSignup(wantsSync) {
+    self.port.emit('disableSite');
+    if (wantsSync) {
       self.port.emit('signup');
-    });
-    const finishButton = document.querySelector('#finished');
-    finishButton.addEventListener('click', () => {
-      this.showSuccess();
-    });
-    const closeButton = document.querySelector('#done');
-    closeButton.addEventListener('click', () => {
-      self.port.emit('disableSite');
-    });
-    const noAccountButton = document.querySelector('#no-account');
-    noAccountButton.addEventListener('click', () => {
-      self.port.emit('disableSite');
-    });
-    const disableAllButton = document.querySelector('#disable-all');
-    disableAllButton.addEventListener('click', () => {
-      self.port.emit('disableForever');
-    });
-  }
-
-  removeSyncSignup() {
-    document.querySelector('#sync').classList.add('hidden');
-  }
-
-  showSyncSignup() {
-    document.querySelector('#sync').classList.remove('hidden');
+    }
   }
 }
 

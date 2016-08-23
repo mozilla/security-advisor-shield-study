@@ -3,3 +3,4 @@ node_modules/
 .sass-cache/
 data/recommendation/style.css
 data/recommendation/buttonStyle.css
+data/recommendation/notifyDist.js
