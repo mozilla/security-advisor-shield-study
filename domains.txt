@@ -1,4 +1,4 @@
-#List of Breached Domains
+List of Breached Domains
 
 "000webhost.com"
 "17app.co"
