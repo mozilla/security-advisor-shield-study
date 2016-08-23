@@ -2,8 +2,7 @@ const yo = require('yo-yo');
 
 class Notify {
   start() {
-    this.target = this.createBase();
-    document.body.appendChild(this.target);
+    this.target = document.body.appendChild(yo`<div></div>`);
     const methodsToBind = ['handleNoAccount', 'handlePasswordChange', 'handleSignup',
                            'handleNoThanks'];
     for (let key of methodsToBind) { // eslint-disable-line prefer-const
@@ -28,7 +27,7 @@ class Notify {
   }
 
   render(options) {
-    const div = this.createBase();
+    const div = yo`<div id="panel"></div>`;
     if (options.boxType === 'warn') {
       div.appendChild(this.createWarningBox(options.site, options.year));
     } else if (options.boxType === 'changedPassword') {
@@ -39,10 +38,6 @@ class Notify {
       throw new Error(`Unrecognized boxType "${options.boxType}"`);
     }
     yo.update(this.target, div);
-  }
-
-  createBase() {
-    return yo`<div id="panel"></div>`;
   }
 
   createWarningBox(site, year) {
