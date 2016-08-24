@@ -10,4 +10,4 @@
 !/README.md
 !/package.json
 !/node_modules/shield-studies-addon-utils/**/*
-!/node_modules/url-bar-notification-button/**/*
+!/node_modules/urlbar-notification-button/**/*
