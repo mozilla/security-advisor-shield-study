@@ -4,17 +4,14 @@ class Notify {
   start() {
     this.target = document.body.appendChild(yo`<div></div>`);
     const methodsToBind = ['handleNoAccount', 'handlePasswordChange', 'handleSignup',
-                           'handleNoThanks'];
+                           'handleNoThanks', 'handleMoreInfo', 'handleDisableAll'];
     for (let key of methodsToBind) { // eslint-disable-line prefer-const
       this[key] = this[key].bind(this);
     }
     self.port.on('data', recs => {
-      const date = new Date(recs.BreachDate);
-      const year = date.getFullYear();
+      this.recs = recs;
       this.render({
         boxType: 'warn',
-        site: recs.Title,
-        year,
       });
     });
     this.hasSync = false;
@@ -26,10 +23,23 @@ class Notify {
     });
   }
 
+  prettifyCount(ISODate) {
+    return ISODate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   render(options) {
     const div = yo`<div id="panel"></div>`;
     if (options.boxType === 'warn') {
-      div.appendChild(this.createWarningBox(options.site, options.year));
+      const date = new Date(this.recs.BreachDate);
+      const year = date.getFullYear();
+      div.appendChild(this.createWarningBox(this.recs.Title, year));
+    } else if (options.boxType === 'moreInfo') {
+      const date = new Date(this.recs.BreachDate);
+      const year = date.getFullYear();
+      const addedDate = new Date(this.recs.AddedDate);
+      const addedYear = addedDate.getFullYear();
+      const count = this.prettifyCount(this.recs.PwnCount);
+      div.appendChild(this.createInfoBox(this.recs.Title, year, count, addedYear));
     } else if (options.boxType === 'changedPassword') {
       div.appendChild(this.createPasswordChangedBox());
     } else if (options.boxType === 'noAccount') {
@@ -50,11 +60,31 @@ class Notify {
           </div>
           <p>
             ${site} was compromised in ${year}, and your
-            account may be affected. <a>Learn more...</a>
+            account may be affected. <a onclick=${this.handleMoreInfo}>Learn more...</a>
           </p>
           <p>
             If you use this password on any other sites,
             we recommend you change those as well.
+          </p>
+        </div>
+        ${this.createWarningFooter()}
+      </div>
+    `;
+  }
+
+  createInfoBox(site, year, victimCount, discoverYear) {
+    return yo`
+      <div>
+        <div class="info-box">
+          <h1>Change your password for ${site}!</h1>
+          <p>
+            ${site} was compromised in ${year}, and the breach
+            affected ${victimCount} accounts. The breach was discovered
+            in ${discoverYear}.
+          </p>
+          <p>
+            If you don't wish to recieve these notifcations anymore, you can
+            <a onclick=${this.handleDisableAll}> disable all future warnings.</a>
           </p>
         </div>
         ${this.createWarningFooter()}
@@ -124,6 +154,12 @@ class Notify {
     `;
   }
 
+  handleMoreInfo() {
+    this.render({
+      boxType: 'moreInfo',
+    });
+  }
+
   handleNoAccount() {
     if (!this.hasSync) {
       this.render({
@@ -151,6 +187,10 @@ class Notify {
 
   handleNoThanks() {
     self.port.emit('disableSite');
+  }
+
+  handleDisableAll() {
+    self.port.emit('disableForever');
   }
 }
 
