@@ -30,16 +30,9 @@ class Notify {
   render(options) {
     const div = yo`<div id="panel"></div>`;
     if (options.boxType === 'warn') {
-      const date = new Date(this.recs.BreachDate);
-      const year = date.getFullYear();
-      div.appendChild(this.createWarningBox(this.recs.Title, year));
+      div.appendChild(this.createWarningBox());
     } else if (options.boxType === 'moreInfo') {
-      const date = new Date(this.recs.BreachDate);
-      const year = date.getFullYear();
-      const addedDate = new Date(this.recs.AddedDate);
-      const addedYear = addedDate.getFullYear();
-      const count = this.prettifyCount(this.recs.PwnCount);
-      div.appendChild(this.createInfoBox(this.recs.Title, year, count, addedYear));
+      div.appendChild(this.createInfoBox());
     } else if (options.boxType === 'changedPassword') {
       div.appendChild(this.createPasswordChangedBox());
     } else if (options.boxType === 'noAccount') {
@@ -50,7 +43,10 @@ class Notify {
     yo.update(this.target, div);
   }
 
-  createWarningBox(site, year) {
+  createWarningBox() {
+    const date = new Date(this.recs.BreachDate);
+    const year = date.getFullYear();
+    const site = this.recs.Title;
     return yo`
       <div>
         <div class="info-box">
@@ -72,15 +68,21 @@ class Notify {
     `;
   }
 
-  createInfoBox(site, year, victimCount, discoverYear) {
+  createInfoBox() {
+    const date = new Date(this.recs.BreachDate);
+    const year = date.getFullYear();
+    const addedDate = new Date(this.recs.AddedDate);
+    const addedYear = addedDate.getFullYear();
+    const count = this.prettifyCount(this.recs.PwnCount);
+    const site = this.recs.Title;
     return yo`
       <div>
         <div class="info-box">
           <h1>Change your password for ${site}!</h1>
           <p>
             ${site} was compromised in ${year}, and the breach
-            affected ${victimCount} accounts. The breach was discovered
-            in ${discoverYear}.
+            affected ${count} accounts. The breach was discovered
+            in ${addedYear}.
           </p>
           <p>
             If you don't wish to recieve these notifcations anymore, you can
