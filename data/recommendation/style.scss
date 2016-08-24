@@ -17,6 +17,7 @@ a {
 }
 
 h1 {
+  display: inline-block;
   font-weight: normal;
   margin: 0;
 }
@@ -26,6 +27,14 @@ h1 {
   padding: 20px;
   &.hidden {
     display: none;
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    & img {
+      height: 32px;
+      margin-right: 10px;
+    }
   }
 }
 
