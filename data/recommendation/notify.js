@@ -44,9 +44,12 @@ class Notify {
     return yo`
       <div>
         <div class="info-box">
-          <h1>Change your password for ${site}!</h1>
+          <div class="title">
+            <img src="warningRed.svg">
+            <h1>Change your password!</h1>
+          </div>
           <p>
-            This site was compromised in ${year}, and your
+            ${site} was compromised in ${year}, and your
             account may be affected. <a>Learn more...</a>
           </p>
           <p>
@@ -72,7 +75,10 @@ class Notify {
     return yo`
       <div>
         <div class="info-box">
-          <h1>Great! Protect all your accounts</h1>
+          <div class="title">
+            <img src="smile.svg">
+            <h1>Great! Protect all your accounts</h1>
+          </div>
           <p>
             You've just taken a step towards staying safe online.
           </p>
@@ -91,7 +97,10 @@ class Notify {
     return yo`
       <div>
         <div class="info-box">
-          <h1>Phew! Protect other accounts</h1>
+          <div class="title">
+            <img src="relief.svg">
+            <h1>Phew. Protect other accounts</h1>
+          </div>
           <p>
             You dodged the bullet with not having an account here.
           </p>
