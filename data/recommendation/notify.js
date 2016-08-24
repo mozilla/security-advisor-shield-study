@@ -176,8 +176,9 @@ class Notify {
     self.port.emit('signup');
   }
 
-  handleNoThanks() {
+  handleNoSignup() {
     self.port.emit('disableSite');
+    self.port.emit('noSignup');
   }
 
   handleDisableAll() {
