@@ -6,6 +6,9 @@ test:
   override:
     - ./node_modules/.bin/eslint lib data test index.js
     - ./node_modules/.bin/jpm test --tbpl --binary /usr/bin/firefox | tee jpm.tbpl
+    # exit with exit code of jpm, not tee
+    (exit ${PIPESTATUS[0]})
+    
   post:
     - woodchipper --timeout 600000 < jpm.tbpl > $CIRCLE_TEST_REPORTS/jpm.xml
     - npm run build && mv @security-advisor-*.xpi $CIRCLE_ARTIFACTS/security-advisor.xpi
