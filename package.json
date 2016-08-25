@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "shield-studies-addon-utils": "1.2.0",
+    "urlbar-notification-button": "^1.0.2",
     "yo-yo": "^1.2.2"
   },
   "permissions": {
