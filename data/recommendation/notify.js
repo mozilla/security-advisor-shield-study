@@ -78,7 +78,10 @@ class Notify {
     return yo`
       <div>
         <div class="info-box">
-          <h1>Change your password for ${site}!</h1>
+          <div class="title">
+            <img src="warningRed.svg">
+            <h1>Change your password!</h1>
+          </div>
           <p>
             ${site} was compromised in ${year}, and the breach
             affected ${count} accounts. The breach was discovered
