@@ -118,7 +118,7 @@ class Notify {
   createSignupFooter() {
     return yo`
       <footer>
-        <div onclick=${this.handleNoThanks}>No, thanks</div>
+        <div onclick=${this.handleNoThanks}>No thanks</div>
         <div onclick=${this.handleSignup}>Use Firefox Sync</div>
       </footer>
     `;
