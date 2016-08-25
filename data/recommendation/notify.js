@@ -56,12 +56,13 @@ class Notify {
           </div>
           <p>
             ${site} was compromised in ${year}, and your
-            account may be affected. <a onclick=${this.handleMoreInfo}>Learn more...</a>
+            account may be affected.
           </p>
           <p>
             If you use this password on any other sites,
             we recommend you change those as well.
           </p>
+          <p><a onclick=${this.handleMoreInfo}>Why am I seeing this?</a></p>
         </div>
         ${this.createWarningFooter()}
       </div>
