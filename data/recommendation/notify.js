@@ -100,8 +100,8 @@ class Notify {
   createWarningFooter() {
     return yo`
       <footer>
-        <div onclick=${this.handlePasswordChange}>I've changed my password</div>
-        <div onclick=${this.handleNoAccount}>I don't have an account</div>
+        <div onclick=${this.handlePasswordChange}>I don't have an account</div>
+        <div onclick=${this.handleNoAccount}>Thanks!</div>
       </footer>
     `;
   }
