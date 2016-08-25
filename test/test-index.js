@@ -1,4 +1,4 @@
-const { Advisor } = require('..lib/Advisor.js');
+const { Advisor } = require('../lib/Advisor.js');
 const { before, after } = require('sdk/test/utils');
 
 let advisor;
