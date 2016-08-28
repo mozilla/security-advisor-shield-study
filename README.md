@@ -14,6 +14,7 @@ This will create `@security-advisor-0.0.*.xpi`, which you can install in Firefox
 Alternatively, use jpm run to have jpm start a new instance of Firefox with add-on loaded:
 ```bash
 $ npm run styles
+$ npm run webpack
 $ jpm run
 ```
 
