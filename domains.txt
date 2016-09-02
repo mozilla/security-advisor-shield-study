@@ -1,4 +1,5 @@
-List of Breached Domains
+Breached Websites as of 09/02/2016
+Source: https://haveibeenpwned.com/API/v2
 
 "000webhost.com"
 "17app.co"
