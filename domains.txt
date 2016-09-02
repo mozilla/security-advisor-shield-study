@@ -1,4 +1,4 @@
-Breached Websites as of 09/02/2016
+List of Websites as of 08/23/2016
 Source: https://haveibeenpwned.com/API/v2
 
 "000webhost.com"
