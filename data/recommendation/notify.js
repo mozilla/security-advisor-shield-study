@@ -4,7 +4,7 @@ class Notify {
   start() {
     this.target = document.body.appendChild(yo`<div></div>`);
     const methodsToBind = ['handleNoAccount', 'handlePasswordChange', 'handleSignup',
-                           'handleNoThanks', 'handleMoreInfo', 'handleDisableAll'];
+                           'handleNoSignup', 'handleMoreInfo', 'handleDisableAll'];
     for (let key of methodsToBind) { // eslint-disable-line prefer-const
       this[key] = this[key].bind(this);
     }
@@ -147,7 +147,7 @@ class Notify {
   createSignupFooter() {
     return yo`
       <footer>
-        <div onclick=${this.handleNoThanks}>No thanks</div>
+        <div onclick=${this.handleNoSignup}>No thanks</div>
         <div onclick=${this.handleSignup}>Use Firefox Sync</div>
       </footer>
     `;
