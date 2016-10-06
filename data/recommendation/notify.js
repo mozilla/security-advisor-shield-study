@@ -8,7 +8,7 @@ class Notify {
     for (let key of methodsToBind) { // eslint-disable-line prefer-const
       this[key] = this[key].bind(this);
     }
-    self.port.on('data', recs => {
+    self.port.on('data', (recs) => {
       this.recs = recs;
       this.render({
         boxType: 'warn',

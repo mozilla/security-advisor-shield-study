@@ -1,16 +1,27 @@
-extends: 'airbnb'
+extends:
+  - airbnb
+
+globals:
+  exports: true
+  require: false
+  uneval: false
+
 plugins:
   - mozilla
 
-rules:
-  indent: [1, 2, {SwitchCase: 1}]
-  mozilla/balanced-listeners: [0]
-  mozilla/no-aArgs: [1]
-  mozilla/this-top-level-scope: [1]
-  no-console: [1]
-  import/no-unresolved: [0]
+root: true
 
-globals:
-  require: false
-  exports: true
-  uneval: false
+rules:
+  import/newline-after-import: warn
+  import/no-extraneous-dependencies: warn
+  import/no-unresolved: off
+
+  mozilla/balanced-listeners: off
+  mozilla/no-aArgs: warn
+  mozilla/this-top-level-scope: warn
+
+  class-methods-use-this: off
+  eqeqeq: error
+  indent: [warn, 2, {SwitchCase: 1}]
+  no-console: warn
+  quotes: [error, single]

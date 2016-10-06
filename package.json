@@ -5,35 +5,37 @@
   "description": "Warns users when they visit sites which have been hacked recently",
   "main": "index.js",
   "author": "Benton Case <bcase@mozilla.com>",
-  "repository": "https://github.com/casebenton/normandy-security-advisor",
+  "repository": "https://github.com/mozilla/security-advisor-shield-study",
   "engines": {
     "firefox": ">=38.0a1",
     "fennec": ">=38.0a1"
   },
-  "license": "MIT",
+  "license": "MPL-2.0",
   "keywords": [
     "jetpack"
   ],
   "scripts": {
-    "styles": "node_modules/.bin/node-sass data/recommendation --output data/recommendation --sourcemap=none",
-    "webpack": "node_modules/.bin/webpack data/recommendation/notify.js data/recommendation/notifyDist.js",
+    "styles": "node-sass data/recommendation --output data/recommendation --sourcemap=none",
+    "webpack": "webpack data/recommendation/notify.js data/recommendation/notifyDist.js",
     "build": "npm run styles && npm run webpack && jpm xpi",
-    "lint": "eslint lib data"
+    "firefox": "npm run build && jpm run",
+    "lint": "eslint lib data *.js",
+    "test": "npm run lint"
   },
   "devDependencies": {
-    "eslint": "2.13.1",
-    "eslint-config-airbnb": "9.0.1",
-    "eslint-plugin-import": "1.10.2",
-    "eslint-plugin-jsx-a11y": "1.5.5",
-    "eslint-plugin-mozilla": "0.0.3",
-    "eslint-plugin-react": "5.2.2",
-    "jpm": "1.0.7",
-    "node-sass": "3.8.0",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-mozilla": "^0.0.3",
+    "eslint-plugin-react": "^6.3.0",
+    "jpm": "^1.2.1",
+    "node-sass": "^3.8.0",
     "webpack": "^1.13.2",
-    "woodchipper": "0.9.1"
+    "woodchipper": "^0.9.1"
   },
   "dependencies": {
-    "shield-studies-addon-utils": "1.2.0",
+    "shield-studies-addon-utils": "^2.0.0",
     "yo-yo": "^1.2.2"
   },
   "permissions": {
