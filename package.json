@@ -1,11 +1,26 @@
 {
+  "title": "Security Advisor",
   "name": "security-advisor",
-  "description": "Warns users when they visit sites which have been hacked recently",
   "version": "0.0.1",
+  "description": "Warns users when they visit sites which have been hacked recently",
+  "main": "index.js",
   "author": "Benton Case <bcase@mozilla.com>",
-  "dependencies": {
-    "shield-studies-addon-utils": "^1.2.0",
-    "yo-yo": "^1.2.2"
+  "repository": "https://github.com/mozilla/security-advisor-shield-study",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MPL-2.0",
+  "keywords": [
+    "jetpack"
+  ],
+  "scripts": {
+    "styles": "node-sass data/recommendation --output data/recommendation --sourcemap=none",
+    "webpack": "webpack data/recommendation/notify.js data/recommendation/notifyDist.js",
+    "build": "npm run styles && npm run webpack && jpm xpi",
+    "firefox": "npm run build && jpm run",
+    "lint": "eslint lib data *.js",
+    "test": "npm run lint"
   },
   "devDependencies": {
     "eslint": "^3.7.1",
@@ -14,30 +29,16 @@
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-mozilla": "^0.0.3",
     "eslint-plugin-react": "^6.3.0",
-    "jpm": "1.0.7",
-    "node-sass": "3.8.0",
+    "jpm": "^1.2.1",
+    "node-sass": "^3.8.0",
     "webpack": "^1.13.2",
-    "woodchipper": "0.9.1"
+    "woodchipper": "^0.9.1"
   },
-  "engines": {
-    "firefox": ">=38.0a1",
-    "fennec": ">=38.0a1"
+  "dependencies": {
+    "shield-studies-addon-utils": "^2.0.0",
+    "yo-yo": "^1.2.2"
   },
-  "keywords": [
-    "jetpack"
-  ],
-  "license": "MPL-2.0",
-  "main": "index.js",
   "permissions": {
     "multiprocess": true
-  },
-  "repository": "https://github.com/mozilla/security-advisor-shield-study",
-  "scripts": {
-    "build": "npm run styles && npm run webpack && jpm xpi",
-    "lint": "eslint .",
-    "styles": "node-sass data/recommendation --output data/recommendation --sourcemap=none",
-    "test": "jpm test",
-    "webpack": "webpack data/recommendation/notify.js data/recommendation/notifyDist.js"
-  },
-  "title": "Security Advisor"
+  }
 }

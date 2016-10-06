@@ -1,11 +1,9 @@
-env:
-  node: true
-
 extends:
-  - eslint:recommended
   - airbnb
 
 globals:
+  exports: true
+  require: false
   uneval: false
 
 plugins:
@@ -14,8 +12,8 @@ plugins:
 root: true
 
 rules:
-  import/newline-after-import: off
-  import/no-extraneous-dependencies: off
+  import/newline-after-import: warn
+  import/no-extraneous-dependencies: warn
   import/no-unresolved: off
 
   mozilla/balanced-listeners: off
