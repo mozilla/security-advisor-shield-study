@@ -14,13 +14,6 @@ class Notify {
         boxType: 'warn',
       });
     });
-    this.hasSync = false;
-    self.port.on('syncEnabled', () => {
-      this.hasSync = true;
-    });
-    self.port.on('syncDisabled', () => {
-      this.hasSync = false;
-    });
   }
 
   prettifyCount(ISODate) {
@@ -167,23 +160,15 @@ class Notify {
   }
 
   handleNoAccount() {
-    if (!this.hasSync) {
-      this.render({
-        boxType: 'noAccount',
-      });
-    } else { // !hasSync
-      self.port.emit('disableSite');
-    }
+    this.render({
+      boxType: 'noAccount',
+    });
   }
 
   handlePasswordChange() {
-    if (!this.hasSync) {
-      this.render({
-        boxType: 'changedPassword',
-      });
-    } else { // !hasSync
-      self.port.emit('disableSite');
-    }
+    this.render({
+      boxType: 'changedPassword',
+    });
   }
 
   handleSignup() {
