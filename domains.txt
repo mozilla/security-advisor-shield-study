@@ -1,126 +1,154 @@
-List of Websites as of 08/23/2016
-Source: https://haveibeenpwned.com/API/v2
+List of Websites as of 10/10/2016
+Source: https://haveibeenpwned.com/api/v2
 
-"000webhost.com"
-"17app.co"
-"acne.org"
-"adobe.com"
-"adultfriendfinder.com"
-"ahashare.com"
-"androidforums.com"
-"ashleymadison.com"
-"astropid.com"
-"avast.com"
-"badoo.com"
-"battlefieldheroes.com"
-"beautifulpeople.com"
-"bell.ca"
-"bigmoneyjobs.com"
-"forum.btcsec.com"
-"bittorrent.com"
-"blackhatworld.com"
-"forums.boxee.com"
-"businessacumen.biz"
-"cannabis.com"
-"comcast.net"
-"comelec.gov.ph"
-"crackcommunity.com"
-"pizza.dominos.be"
-"ddo.com"
-"ffshrine.org"
-"flashback.se"
-"fling.com"
-"forbes.com"
-"foxybingo.com"
-"fridae.asia"
-"furaffinity.net"
-"gamerzplanet.net"
-"gamigo.com"
-"gawker.com"
-"hackforums.net"
-"hackingteam.com"
-"hemmakvall.se"
-"hemmelig.com"
-"heroesofnewerth.com"
-"imesh.com"
-"insanelyi.com"
-"ipmart-forum.com"
-"km.ru"
-"lbsg.net"
-"linkedin.com"
-"linuxmint.com"
-"lizardstresser.su"
-"lotro.com"
-"loungeboard.net"
-"mac-torrents.com"
-"mail.ru"
-"majorgeeks.com"
-"malwarebytes.org"
-"mangatraders.com"
-"mate1.com"
-"minecraftpeforum.net"
-"minefield.fr"
-"moneybookers.com"
-"mpgh.net"
-"mspy.com"
-"muslimdirectory.co.uk"
-"muslimmatch.com"
-"myrepospace.com"
-"myspace.com"
-"myvidster.com"
-"naughtyamerica.com"
-"neopets.com"
-"neteller.com"
-"nextgenupdate.com"
-"nexusmods.com"
-"nival.com"
-"nulled.cr"
-"OwnedCore.com"
-"paddypower.com"
-"patreon.com"
-"phpfreaks.com"
-"pixelfederation.com"
-"plex.tv"
-"pokemoncreed.net"
-"ps3hax.net"
-"psx-scene.com"
-"qnb.com"
-"quantumbooter.net"
-"r2games.com"
-"rosebuttboard.com"
-"seedpeer.eu"
-"sktorrent.eu"
-"snapchat.com"
-"sony.com"
-"spirol.com"
-"starnet.md"
-"stratfor.com"
-"sumotorrent.sx"
-"solomid.net"
-"trai.gov.in"
-"tesco.com"
-"thefappening.so"
-"thishabboforum.com"
-"tianya.cn"
-"trillian.im"
-"truckersmp.com"
-"tumblr.com"
-"uiggy.com"
-"intgovforum.org"
-"vbulletin.com"
-"verified.cm"
-"vk.com"
-"vodafone.is"
-"vtechda.com"
-"warframe.com"
-"whmcs.com"
-"wildstar-online.com"
-"win7vista.com"
-"wptapl.com"
-"xat.com"
-"xboxscene.com"
-"xsplit.com"
-"yahoo.com"
-"forum.btcsec.com"
-"youporn.com"
-"sprashivai.ru"
+000webhost.com (2015-03-01)
+126.com (2012-01-01)
+163.com (2015-10-19)
+17app.co (2016-04-19)
+OwnedCore.com (2013-08-01)
+acne.org (2014-11-25)
+adobe.com (2013-10-04)
+adultfriendfinder.com (2015-05-21)
+ahashare.com (2013-05-30)
+androidforums.com (2011-10-30)
+ashleymadison.com (2015-07-19)
+astropid.com (2013-12-19)
+aternos.org (2015-12-06)
+avast.com (2014-05-26)
+badoo.com (2013-06-01)
+battlefieldheroes.com (2011-06-26)
+beautifulpeople.com (2015-11-11)
+bell.ca (2014-02-01)
+bigmoneyjobs.com (2014-04-03)
+bittorrent.com (2016-01-01)
+blackhatworld.com (2014-06-23)
+bluesnap.com (2016-05-20)
+brazzers.com (2013-04-01)
+businessacumen.biz (2014-04-25)
+cannabis.com (2014-02-05)
+clixsense.com (2016-09-04)
+comcast.net (2015-11-08)
+comelec.gov.ph (2016-03-27)
+crackcommunity.com (2013-09-09)
+ddo.com (2013-04-02)
+dlh.net (2016-07-31)
+dropbox.com (2012-07-01)
+eservices.durban.gov.za (2016-09-07)
+experian.com (2015-09-16)
+ffshrine.org (2015-09-18)
+flashback.se (2015-02-11)
+flashflashrevolution.com (2016-02-01)
+fling.com (2011-03-10)
+forbes.com (2014-02-15)
+forum.btcsec.com (2014-01-09)
+forum.btcsec.com (2014-09-07)
+forums.boxee.com (2014-03-29)
+foxybingo.com (2008-04-04)
+fridae.asia (2014-05-02)
+furaffinity.net (2016-05-17)
+game-tuts.com (2015-03-01)
+gamerzplanet.net (2015-10-23)
+gamigo.com (2012-03-01)
+gawker.com (2010-12-11)
+gfan.com (2016-10-10)
+gpotato.com (2007-07-12)
+gtagaming.com (2016-08-01)
+hackforums.net (2011-06-25)
+hackingteam.com (2015-07-06)
+hemmakvall.se (2015-07-08)
+hemmelig.com (2011-12-21)
+heroesofnewerth.com (2012-12-17)
+i-dressup.com (2016-07-15)
+imesh.com (2013-09-22)
+insanelyi.com (2014-07-22)
+interpals.net (2015-11-04)
+intgovforum.org (2014-02-20)
+ipmart-forum.com (2015-07-01)
+km.ru (2016-02-29)
+last.fm (2012-03-22)
+lbsg.net (2016-01-01)
+leet.cc (2016-09-10)
+linkedin.com (2012-05-05)
+linuxmint.com (2016-02-21)
+lizardstresser.su (2015-01-16)
+lotro.com (2013-08-01)
+loungeboard.net (2013-08-01)
+mac-torrents.com (2015-10-31)
+mail.ru (2014-09-10)
+majorgeeks.com (2015-11-15)
+malwarebytes.org (2014-11-15)
+mangatraders.com (2014-10-06)
+mate1.com (2016-02-29)
+minecraftpeforum.net (2015-05-24)
+minecraftworldmap.com (2016-01-15)
+minefield.fr (2015-06-28)
+modaco.com (2016-01-01)
+moneybookers.com (2009-01-01)
+mpgh.net (2015-10-22)
+mspy.com (2015-05-14)
+muslimdirectory.co.uk (2014-02-17)
+muslimmatch.com (2016-06-24)
+myrepospace.com (2015-07-06)
+myspace.com (2008-07-01)
+myvidster.com (2015-08-15)
+naughtyamerica.com (2016-03-14)
+neopets.com (2013-05-05)
+neteller.com (2010-05-17)
+nextgenupdate.com (2014-04-22)
+nexusmods.com (2013-07-22)
+nihonomaru.net (2015-12-01)
+nival.com (2016-02-29)
+nulled.cr (2016-05-06)
+onverse.com (2016-01-01)
+paddypower.com (2010-10-25)
+patreon.com (2015-10-01)
+phpfreaks.com (2015-10-27)
+pixelfederation.com (2013-12-04)
+pizza.dominos.be (2014-06-13)
+plex.tv (2015-07-02)
+pokebip.com (2015-07-28)
+pokemoncreed.net (2014-08-08)
+ps3hax.net (2015-07-01)
+psx-scene.com (2015-02-01)
+qnb.com (2015-07-01)
+quantumbooter.net (2014-03-18)
+r2games.com (2015-11-01)
+rosebuttboard.com (2016-05-09)
+seedpeer.eu (2015-07-12)
+serverpact.com (2016-01-01)
+sktorrent.eu (2016-02-19)
+snapchat.com (2014-01-01)
+solomid.net (2014-12-22)
+sony.com (2011-06-02)
+spirol.com (2014-02-22)
+sprashivai.ru (2015-05-11)
+starnet.md (2015-02-26)
+stratfor.com (2011-12-24)
+sumotorrent.sx (2014-06-21)
+taobao.com (2012-01-01)
+teracod.org (2016-05-28)
+tesco.com (2014-02-12)
+thefappening.so (2015-12-01)
+thishabboforum.com (2014-01-01)
+tianya.cn (2011-12-26)
+trai.gov.in (2015-04-27)
+trillian.im (2015-12-27)
+truckersmp.com (2016-02-25)
+tumblr.com (2013-02-28)
+uiggy.com (2016-06-01)
+vbulletin.com (2015-11-03)
+verified.cm (2014-01-10)
+vk.com (2012-01-01)
+vodafone.is (2013-12-12)
+vtechda.com (2015-11-13)
+warframe.com (2014-11-24)
+whmcs.com (2012-05-21)
+wiiuiso.com (2015-09-25)
+wildstar-online.com (2015-07-11)
+win7vista.com (2013-09-03)
+wptapl.com (2014-01-04)
+xat.com (2015-11-04)
+xboxscene.com (2015-02-01)
+xsplit.com (2013-11-07)
+yahoo.com (2012-07-11)
+youporn.com (2012-02-21)
