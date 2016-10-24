@@ -10,9 +10,11 @@ class Notify {
     }
     self.port.on('data', recs => {
       this.recs = recs;
-      this.render({
-        boxType: 'warn',
-      });
+      this.render('warn');
+    });
+    this.specialOffer = false;
+    self.port.on('newFeatureSyncOffer', () => {
+      this.specialOffer = true;
     });
   }
 
@@ -20,62 +22,73 @@ class Notify {
     return ISODate.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
-  render(options) {
+  render(boxType) {
     const div = yo`<div id="panel"></div>`;
-    if (options.boxType === 'warn') {
-      div.appendChild(this.createWarningBox());
-    } else if (options.boxType === 'moreInfo') {
-      div.appendChild(this.createInfoBox());
-    } else if (options.boxType === 'changedPassword') {
-      div.appendChild(this.createPasswordChangedBox());
-    } else if (options.boxType === 'noAccount') {
-      div.appendChild(this.createNoAccountBox());
-    } else {
-      throw new Error(`Unrecognized boxType "${options.boxType}"`);
-    }
+    div.appendChild(this.createBox(boxType));
     yo.update(this.target, div);
   }
 
-  createWarningBox() {
-    const date = new Date(this.recs.BreachDate);
-    const year = date.getFullYear();
-    const site = this.recs.Title;
+  createBox(boxType) {
     return yo`
       <div>
         <div class="info-box">
-          <div class="title">
-            <img src="warningRed.svg">
-            <h1>Change your password!</h1>
-          </div>
-          <p>
-            ${site} was compromised in ${year}, and your
-            account may be affected.
-          </p>
-          <p>
-            If you use this password on any other sites,
-            we recommend you change those as well.
-          </p>
-          <p><a onclick=${this.handleMoreInfo}>Why am I seeing this?</a></p>
+          ${this.createHeader(boxType)}
+          ${this.createMessage(boxType)}
         </div>
-        ${this.createWarningFooter()}
+        ${this.createFooter(boxType)}
       </div>
     `;
   }
 
-  createInfoBox() {
+  createHeader(boxType) {
+    if (boxType === 'moreInfo' || boxType === 'warn') {
+      return yo`
+      <div class="title">
+        <img src="warningRed.svg">
+        <h1>Change your password!</h1>
+      </div>
+      `;
+    } else if (boxType === 'changedPassword') {
+      return yo`
+        <div class="title">
+          <img src="smile.svg">
+          <h1>Great! Protect all your accounts</h1>
+        </div>
+      `;
+    }
+    // boxType === 'noAccount'
+    return yo`
+    <div class="title">
+      <img src="relief.svg">
+      <h1>Phew. Protect other accounts</h1>
+    </div>
+    `;
+  }
+
+  createMessage(boxType) {
     const date = new Date(this.recs.BreachDate);
     const year = date.getFullYear();
     const addedDate = new Date(this.recs.AddedDate);
     const addedYear = addedDate.getFullYear();
     const count = this.prettifyCount(this.recs.PwnCount);
     const site = this.recs.Title;
-    return yo`
-      <div>
-        <div class="info-box">
-          <div class="title">
-            <img src="warningRed.svg">
-            <h1>Change your password!</h1>
-          </div>
+
+    if (boxType === 'warn') {
+      return yo`
+        <div>
+          <p>
+            ${site} was compromised in ${year}, and your
+            account may be affected. <a onclick=${this.handleMoreInfo}>Learn more...</a>
+          </p>
+          <p>
+            If you use this password on any other sites,
+            we recommend you change those as well.
+          </p>
+        </div>
+      `;
+    } else if (boxType === 'moreInfo') {
+      return yo`
+        <div>
           <p>
             ${site} was compromised in ${year}, and the breach
             affected ${count} accounts. The breach was discovered
@@ -86,65 +99,52 @@ class Notify {
             <a onclick=${this.handleDisableAll}> disable all future warnings.</a>
           </p>
         </div>
-        ${this.createWarningFooter()}
-      </div>
-    `;
-  }
-
-  createWarningFooter() {
-    return yo`
-      <footer>
-        <div onclick=${this.handleNoAccount}>I don't have an account</div>
-        <div onclick=${this.handlePasswordChange}>Thanks!</div>
-      </footer>
-    `;
-  }
-
-  createPasswordChangedBox() {
+      `;
+    } else if (boxType === 'noAccount') {
+      return yo`
+        <div>
+          <p>You dodged the bullet with not having an account here.</p>
+          ${this.createSyncOffer()}
+        </div>
+      `;
+    }
+    // boxType === 'changedPassword'
     return yo`
       <div>
-        <div class="info-box">
-          <div class="title">
-            <img src="smile.svg">
-            <h1>Great! Protect all your accounts</h1>
-          </div>
-          <p>
-            You've just taken a step towards staying safe online.
-          </p>
-          <p>
-            Protect yourself further with Firefox Sync for your passwords
-            and you will be informed each time one of your accounts might
-            be at risk.
-          </p>
-        </div>
-        ${this.createSignupFooter()}
+        <p>You've just taken a step towards staying safe online.</p>
+        ${this.createSyncOffer()}
       </div>
     `;
   }
 
-  createNoAccountBox() {
+  createSyncOffer() {
+    if (this.specialOffer) {
+      return yo`
+        <p>
+          Protect yourself further with Firefox Sync for your passwords
+          and you will be informed each time one of your accounts might
+          be at risk.
+        </p>
+      `;
+    }
     return yo`
-      <div>
-        <div class="info-box">
-          <div class="title">
-            <img src="relief.svg">
-            <h1>Phew. Protect other accounts</h1>
-          </div>
-          <p>
-            You dodged the bullet with not having an account here.
-          </p>
-          <p>
-            Protect yourself with Firefox Sync for your passwords
-            and you will be informed each time one of your accounts might
-            be at risk.
-          </p>
-        </div>
-        ${this.createSignupFooter()}
-      </div>
+      <p>
+        Protect yourself further with Firefox Sync for your passwords. All your
+        passwords, synced safely on all of your devices.
+      </p>
     `;
   }
 
-  createSignupFooter() {
+  createFooter(boxType) {
+    if (boxType === 'warn' || boxType === 'moreInfo') {
+      return yo`
+        <footer>
+          <div onclick=${this.handlePasswordChange}>I've changed my password</div>
+          <div onclick=${this.handleNoAccount}>I don't have an account</div>
+        </footer>
+      `;
+    }
+    // boxType === changedPassword || boxType === noAccount
     return yo`
       <footer>
         <div onclick=${this.handleNoSignup}>No thanks</div>
@@ -154,9 +154,7 @@ class Notify {
   }
 
   handleMoreInfo() {
-    this.render({
-      boxType: 'moreInfo',
-    });
+    this.render('moreInfo');
   }
 
   handleNoAccount() {
