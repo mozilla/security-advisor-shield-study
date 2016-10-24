@@ -23,6 +23,6 @@ before(exports, () => {
 require('sdk/test').run(exports);
 
 after(exports, () => {
-  advisor.destroy();
+  advisor.cleanup();
   advisor = null;
 });
