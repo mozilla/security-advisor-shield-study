@@ -1,0 +1,8 @@
+"payload": {
+  "messageType": "passwordChange",
+  "domain": "adobe.com",
+  "passwordChangeConfirmTime": 1472056311045,
+  "passwordChangeCount": 1,
+  "messageClass": "advisor-logging",
+  "study_version": "0.0.1"
+}
