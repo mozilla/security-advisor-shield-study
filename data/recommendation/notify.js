@@ -148,7 +148,7 @@ class Notify {
     return yo`
       <footer>
         <div onclick=${this.handleNoSignup}>No thanks</div>
-        <div onclick=${this.handleSignup}>Use Firefox Sync</div>
+        <div onclick=${this.handleSignup.bind(this)}>Use Firefox Sync</div>
       </footer>
     `;
   }
@@ -171,7 +171,7 @@ class Notify {
 
   handleSignup() {
     self.port.emit('disableSite');
-    self.port.emit('signup');
+    self.port.emit('signup', this.specialOffer);
   }
 
   handleNoSignup() {
