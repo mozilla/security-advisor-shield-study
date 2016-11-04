@@ -1,6 +1,6 @@
 {
   "title": "Security Advisor",
-  "name": "security-advisor",
+  "name": "shield-study-security-advisor",
   "version": "1.0.0",
   "description": "Warns users when they visit sites which have been hacked recently",
   "main": "index.js",

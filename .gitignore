@@ -1,4 +1,4 @@
-/@security-advisor-*.xpi
+/@shield-study-security-advisor-*.xpi
 node_modules/
 .sass-cache/
 data/recommendation/style.css
