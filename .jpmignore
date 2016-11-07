@@ -2,7 +2,7 @@
 .*
 !/data/recommendation/*.svg
 !/data/recommendation/*.css
-!/data/recommendation/notifyDist.js
+!/data/recommendation/notify.js
 !/data/recommendation/*.html
 !/data/recommendation/*.json
 !/lib/*.js
