@@ -16,8 +16,7 @@
   ],
   "scripts": {
     "styles": "node_modules/.bin/node-sass data/recommendation --output data/recommendation --sourcemap=none",
-    "webpack": "node_modules/.bin/webpack data/recommendation/notify.js data/recommendation/notifyDist.js",
-    "build": "npm run styles && npm run webpack && jpm xpi",
+    "build": "npm run styles && jpm xpi",
     "fetch-breaches": "node bin/fetch-breaches",
     "lint": "eslint bin lib data"
   },
@@ -33,12 +32,10 @@
     "node-fetch": "1.6.3",
     "node-sass": "3.8.0",
     "shield-study-cli": "1.2.2",
-    "webpack": "1.13.2",
     "woodchipper": "0.9.1"
   },
   "dependencies": {
-    "shield-studies-addon-utils": "2.0.0",
-    "yo-yo": "^1.2.2"
+    "shield-studies-addon-utils": "2.0.0"
   },
   "permissions": {
     "multiprocess": true
