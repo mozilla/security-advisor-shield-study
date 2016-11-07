@@ -1,9 +1,9 @@
 function el(tag, attrs = {}, ...children) {
   const element = document.createElement(tag);
-  for (const name of Object.keys(attrs)) {
+  for (let name of Object.keys(attrs)) { // eslint-disable-line prefer-const
     element[name] = attrs[name];
   }
-  for (const child of children) {
+  for (let child of children) { // eslint-disable-line prefer-const
     if (typeof child === 'string') {
       element.appendChild(document.createTextNode(child));
     } else {
