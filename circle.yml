@@ -12,4 +12,4 @@ test:
 
   post:
     - woodchipper --timeout 600000 < jpm.tbpl > $CIRCLE_TEST_REPORTS/jpm.xml
-    - npm run build && mv @security-advisor-*.xpi $CIRCLE_ARTIFACTS/security-advisor.xpi
+    - npm run build && mv @shield-study-security-advisor-*.xpi $CIRCLE_ARTIFACTS/security-advisor.xpi
