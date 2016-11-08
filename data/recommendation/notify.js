@@ -121,16 +121,21 @@ class Notify {
 
   createSyncOffer() {
     if (this.specialOffer) {
-      return el('p', {}, `
-        Want to be notified immediately if one of your saved passwords is
-        stolen? Sign up for a Firefox Account for instant security updates.
-      `);
+      return el('p', {},
+        el('strong', {}, `
+          Want to be notified immediately if one of your saved passwords is
+          stolen?
+        `),
+        'Sign up for a Firefox Account for instant security updates.'
+      );
     }
-    return el('p', {}, `
-    Want to take all your passwords, tabs, and bookmarks with you on the
-    road? Sign up for a Firefox account to sync your data with your Mobile
-    device.
-    `);
+    return el('p', {},
+      el('strong', {}, `
+        Want to take all your passwords, tabs, and bookmarks with you on the
+        road?
+      `),
+      'Sign up for a Firefox account to sync your data with your Mobile device.'
+    );
   }
 
   createFooter(boxType) {
