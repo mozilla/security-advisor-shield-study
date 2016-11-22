@@ -1,7 +1,7 @@
 {
   "title": "Security Advisor",
   "name": "shield-study-security-advisor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Warns users when they visit sites which have been hacked recently",
   "main": "index.js",
   "author": "Benton Case <bcase@mozilla.com>",
